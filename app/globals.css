@@ -166,7 +166,7 @@ footer h3::after{
   width: 1.875rem;
   height: .125rem;
   border-radius: 6.25rem;
-  background-image: var(--gradient-primary);
+  background-color: rgb(255 255 255 / 0.6);
   margin-top: .125rem;
 }
 

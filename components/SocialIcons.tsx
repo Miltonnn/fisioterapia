@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 interface SocialIconsProps {
   className?: string
   iconSize?: number
-  colorMode?: "theme" | "brand"
+  colorMode?: "theme" | "brand" | "light"
   itemClassName?: string
 }
 
@@ -28,9 +28,9 @@ export function SocialIcons({
             rel="noopener noreferrer"
             className={cn(
               "w-10 h-10 rounded-lg hover:brightness-110 hover:-translate-y-0.5 flex items-center justify-center transition text-white shadow-sm",
-              colorMode === "brand"
-                ? social.brandClassName
-                : "bg-brand-gradient shadow-primary/30",
+              colorMode === "brand" && social.brandClassName,
+              colorMode === "light" && "bg-white text-heading shadow-black/10",
+              colorMode === "theme" && "bg-brand-gradient shadow-primary/30",
               itemClassName
             )}
             aria-label={social.name}
