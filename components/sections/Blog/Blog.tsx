@@ -5,8 +5,8 @@ export function Blog() {
   return (
     <CatalogSection
       eyebrow="Blog"
-      title="Conteúdos para o seu negócio"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title="Dicas para cuidar do seu corpo"
+      description="Conteúdos sobre postura, prevenção de lesões e qualidade de vida para você se movimentar melhor no dia a dia."
       items={posts}
       allHref="/blog"
       allLabel="Ver todos os posts"

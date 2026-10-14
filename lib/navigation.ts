@@ -8,6 +8,8 @@ export interface NavLink {
   href: string;
   section?: SiteSection;
   description?: string;
+  image?: string;
+  details?: string[];
   children?: NavLink[];
 }
 

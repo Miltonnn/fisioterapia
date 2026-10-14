@@ -15,6 +15,6 @@ export function createCatalogItems(
 
   return links.map((link) => ({
     ...link,
-    image: DEFAULT_CATALOG_IMAGE,
+    image: link.image ?? DEFAULT_CATALOG_IMAGE,
   }));
 }

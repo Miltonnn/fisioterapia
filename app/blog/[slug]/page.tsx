@@ -1,5 +1,6 @@
-import { posts } from "@/components/sections/Blog/blog.data";
-import { PostDetail } from "@/components/sections/Blog/PostDetail";
+import { postLinks, posts } from "@/components/sections/Blog/blog.data";
+import { CatalogDetail } from "@/components/catalog/CatalogDetail";
+import { CatalogAside } from "@/components/catalog/CatalogAside";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
@@ -31,7 +32,20 @@ export default async function PostDetalhe({ params }: Props) {
   return (
     <section>
       <Breadcrumb />
-      <PostDetail post={post} />
+
+      <div className="container grid gap-12 py-20 lg:grid-cols-[300px_1fr]">
+        <div className="lg:order-2">
+          <CatalogDetail item={post} />
+        </div>
+
+        <div className="lg:order-1">
+          <CatalogAside
+            title="Artigos"
+            links={postLinks}
+            currentHref={post.href}
+          />
+        </div>
+      </div>
     </section>
   );
 }

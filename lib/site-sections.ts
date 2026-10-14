@@ -1,7 +1,7 @@
 export const siteSections = {
   servicos: true,
   produtos: false,
-  blog: false,
+  blog: true,
 };
 
 export type SiteSection = keyof typeof siteSections;
