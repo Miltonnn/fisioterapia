@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { navigationLinks } from "@/lib/navigation";
 import { SocialIcons } from "@/components/SocialIcons";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -69,7 +69,7 @@ export function Footer() {
                   className="w-4 h-4"
                 />
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                  href={whatsappHref}
                   className=" hover:text-white transition duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -102,6 +102,12 @@ export function Footer() {
 
         <div className="relative mt-12 pt-8 text-center before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/25">
           © {year} {siteConfig.name}. Todos os direitos reservados.
+          <Link
+            href="/politica-de-privacidade"
+            className="mt-2 block text-sm underline-offset-4 hover:text-white hover:underline"
+          >
+            Política de Privacidade
+          </Link>
         </div>
       </section>
     </footer>

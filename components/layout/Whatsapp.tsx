@@ -5,13 +5,20 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Hand, SquareX } from "lucide-react";
+import { FeedbackDialog, useFeedback } from "@/components/forms/FeedbackDialog";
+import {
+  getRecaptchaToken,
+  handleRecaptchaBlur,
+  handleRecaptchaFocus,
+  hideRecaptchaBadge,
+} from "@/lib/recaptcha-client";
 
 export default function Whatsapp() {
   const [open, setOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [success, setSuccess] = useState(false);
+  const { showFeedback, dialogProps } = useFeedback();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -55,31 +62,47 @@ export default function Whatsapp() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, phone }),
+        body: JSON.stringify({
+          email,
+          phone,
+          recaptchaToken: await getRecaptchaToken("lead"),
+        }),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        alert(result.error || "Erro ao enviar dados");
+        showFeedback({
+          variant: "error",
+          title: "Não foi possível enviar",
+          description: result.error || "Erro ao enviar dados. Tente novamente.",
+        });
         return;
       }
 
       localStorage.setItem("leadSent", "true");
 
+      hideRecaptchaBadge();
+
       setOpen(false);
-      setSuccess(true);
+      showFeedback({
+        variant: "success",
+        title: "Dados enviados com sucesso!",
+        description: "Em breve entraremos em contato com você.",
+        autoCloseMs: 3500,
+      });
 
       setEmail("");
       setPhone("");
       setShowTooltip(false);
 
-      setTimeout(() => {
-        setSuccess(false);
-      }, 2000);
     } catch (error) {
       console.error(error);
-      alert("Erro de conexão com servidor");
+      showFeedback({
+        variant: "error",
+        title: "Erro de conexão",
+        description: "Verifique sua internet e tente novamente.",
+      });
     } finally {
       setLoading(false);
     }
@@ -115,7 +138,12 @@ export default function Whatsapp() {
                 Olá! Deixe seu contato e retornamos rapidinho.
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
+              <form
+                onFocus={handleRecaptchaFocus}
+                onBlur={handleRecaptchaBlur}
+                onSubmit={handleSubmit}
+                className="space-y-3"
+              >
                 <Input
                   type="email"
                   placeholder="Seu e-mail"
@@ -175,41 +203,7 @@ export default function Whatsapp() {
         </button>
       </div>
 
-      {/* MENSAGEM DE SUCESSO */}
-
-      {success && (
-        <div className="fixed bottom-6 md:right-8 right-3 z-60 animate-in slide-in-from-right fade-in duration-300">
-          <div className="relative overflow-hidden bg-white shadow-2xl border rounded-2xl p-6 w-80 flex items-start gap-4">
-            <div className="absolute bottom-40 left-0 h-1 bg-primary animate-progress" />
-
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <svg
-                className="w-6 h-6 text-primary"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-sm">
-                Dados enviados com sucesso
-              </h3>
-
-              <p className="text-xs text-muted-foreground mt-1">
-                Em breve entraremos em contato.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <FeedbackDialog {...dialogProps} />
     </>
   );
 }

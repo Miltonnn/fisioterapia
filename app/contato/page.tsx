@@ -1,7 +1,7 @@
 import { Formulario } from "@/components/forms/Formulario";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Mapa } from "@/components/sections/Mapa";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Mail, MapPin, Phone } from "lucide-react";
@@ -14,11 +14,13 @@ export default function ContatoPage() {
         <div className="grid grid-cols-12 items-center py-10 lg:gap-20">
           <div className="col-span-12 xl:col-span-6 pb-20 xl:pb-0" data-aos="fade-right">
             <h2 className="text-3xl font-medium text-dark mb-4">
-              Informções de contato
+              Fale com a gente
             </h2>
             <p className="text-muted-foreground">
-              Solicite informações, orçamentos ou dúvidas técnicass
-              <span className="block">nossa equipe responde com agilidade</span>
+              Tire suas dúvidas ou agende sua avaliação.
+              <span className="block">
+                Respondemos rapidinho, de preferência pelo WhatsApp.
+              </span>
             </p>
             <div className="pt-6 flex flex-col gap-7">
               <div className="flex items-start gap-4">
@@ -61,7 +63,7 @@ export default function ContatoPage() {
                 <span>
                   <h3 className="text-lg font-bold text-brand-gradient">Whatsapp</h3>
                   <a
-                    href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                    href={whatsappHref}
                     className=" hover:text-primary transition duration-300"
                     target="_blank"
                     rel="noopener noreferrer"

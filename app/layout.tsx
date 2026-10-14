@@ -5,7 +5,6 @@ import { Header } from "@/components/layout/header/Header";
 import { Footer } from "@/components/layout/footer/Footer";
 import ClientOnly from "@/components/layout/ClientOnly";
 import { AosInit } from "@/components/aos-init";
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

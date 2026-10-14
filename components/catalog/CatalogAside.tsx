@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Button, ButtonArrow } from "@/components/ui/button";
 import type { NavLink } from "@/lib/navigation";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, whatsappHref } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 interface CatalogAsideProps {
@@ -12,8 +12,6 @@ interface CatalogAsideProps {
   links: NavLink[];
   currentHref: string;
 }
-
-const whatsappHref = `https://wa.me/55${siteConfig.contact.whatsapp.replace(/\D/g, "")}`;
 
 export function CatalogAside({ title, links, currentHref }: CatalogAsideProps) {
   return (
