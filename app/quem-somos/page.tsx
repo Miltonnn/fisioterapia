@@ -7,9 +7,9 @@ import { siteConfig } from "@/lib/site-config";
 
 export default function QuemSomosPage() {
   return (
-    <section>
+    <>
       <Breadcrumb />
-      <div className="overflow-hidden">
+      <section className="overflow-hidden">
         <div className="container grid grid-cols-1 items-center gap-16 py-20 lg:grid-cols-12 lg:py-24">
           <div
             className="flex flex-col items-start lg:col-span-7"
@@ -48,10 +48,10 @@ export default function QuemSomosPage() {
             <ProfilePhoto />
           </div>
         </div>
-      </div>
+      </section>
       <Diferenciais />
-      <Cta />
       <Mvv />
-    </section>
+      <Cta />
+    </>
   );
 }
