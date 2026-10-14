@@ -5,14 +5,23 @@ import { usePathname } from "next/navigation";
 import { navigationLinks } from "@/lib/navigation";
 import { ChevronRight, House } from "lucide-react";
 
-export function Breadcrumb() {
+interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
+interface BreadcrumbProps {
+  items?: BreadcrumbItem[];
+}
+
+export function Breadcrumb({ items }: BreadcrumbProps) {
   const pathname = usePathname();
 
   if (pathname === "/") return null;
 
   const segments = pathname.split("/").filter(Boolean);
 
-  const breadcrumbItems: { name: string; href: string }[] = [];
+  const breadcrumbItems: BreadcrumbItem[] = [];
 
   let currentLevel = navigationLinks;
 
@@ -35,6 +44,8 @@ export function Breadcrumb() {
     }
   }
 
+  const visibleItems = items ?? breadcrumbItems;
+
   return (
     <div className="w-full bg-brand-gradient">
       <div className="container py-4">
@@ -51,11 +62,11 @@ export function Breadcrumb() {
               </Link>
             </li>
 
-            {breadcrumbItems.map((item, index) => (
+            {visibleItems.map((item, index) => (
               <span key={item.href} className="flex items-center gap-1">
                 <ChevronRight className="h-4 w-4 text-white/70" />
 
-                {index === breadcrumbItems.length - 1 ? (
+                {index === visibleItems.length - 1 ? (
                   <span className="text-white font-semibold">
                     {item.name}
                   </span>

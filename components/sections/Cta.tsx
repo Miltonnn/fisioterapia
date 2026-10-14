@@ -14,9 +14,9 @@ const trustItems = [
 
 export function Cta() {
   return (
-    <section className="py-20 lg:pt-32">
+    <section className="py-20">
       <div className="container" data-aos="fade-up">
-        <div className="relative isolate grid rounded-3xl bg-brand-gradient shadow-2xl lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_400px]">
+        <div className="relative isolate grid overflow-hidden rounded-3xl bg-brand-gradient shadow-2xl lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_460px]">
           <div
             aria-hidden="true"
             className="absolute inset-0 -z-10 overflow-hidden rounded-3xl"
@@ -78,12 +78,11 @@ export function Cta() {
 
           <div className="relative hidden lg:block">
             <Image
-              src="/assets/banner/hero-banner.png"
-              alt="Dra. Amanda Torrigo, fisioterapeuta"
-              width={1086}
-              height={1448}
-              sizes="(min-width: 1280px) 400px, 340px"
-              className="absolute bottom-0 left-1/2 h-[118%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-2xl"
+              src="/assets/cta/reabilitacao.jpg"
+              alt="Fisioterapeuta ajustando órtese no punho de uma paciente"
+              fill
+              sizes="(min-width: 1280px) 460px, 380px"
+              className="cta-photo object-cover"
             />
           </div>
         </div>

@@ -329,6 +329,11 @@ footer h3::after{
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
 
+.cta-photo {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 35%);
+  mask-image: linear-gradient(to right, transparent, #000 35%);
+}
+
 @keyframes cta-shimmer {
   0% {
     transform: translateX(-150%) skewX(-20deg);

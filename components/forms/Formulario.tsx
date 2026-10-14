@@ -29,7 +29,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const selectClassName =
-  "w-full h-10 rounded-md border border-input bg-background px-3 text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none";
+  "w-full h-10 rounded-md border border-input bg-background px-3 text-base md:text-sm text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none";
 
 const preferenceIcons = {
   WhatsApp: <FontAwesomeIcon icon={faWhatsapp} className="size-4" />,
@@ -107,12 +107,13 @@ export function Formulario() {
         className="@container w-full flex flex-col shadow-2xl p-5 xl:p-8 rounded-3xl gap-4"
       >
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             <Label htmlFor="contact-name" className="text-md">
               Nome completo
             </Label>
             <Input
               id="contact-name"
+              className="h-10"
               autoComplete="name"
               placeholder="Seu nome completo"
               {...register("name")}
@@ -122,12 +123,13 @@ export function Formulario() {
             )}
           </div>
 
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             <Label htmlFor="contact-email" className="text-md">
               E-mail
             </Label>
             <Input
               id="contact-email"
+              className="h-10"
               type="email"
               autoComplete="email"
               placeholder="seu@email.com"
@@ -140,12 +142,13 @@ export function Formulario() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             <Label htmlFor="contact-phone" className="text-md">
               Telefone / WhatsApp
             </Label>
             <Input
               id="contact-phone"
+              className="h-10"
               type="tel"
               autoComplete="tel"
               placeholder="(11) 99999-9999"
@@ -156,7 +159,7 @@ export function Formulario() {
             )}
           </div>
 
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             <Label htmlFor="contact-service" className="text-md">
               Qual tratamento procura?
             </Label>
@@ -180,12 +183,19 @@ export function Formulario() {
         </div>
 
         <div className="grid gap-4 @[600px]:grid-cols-2">
-          <fieldset className="space-y-2">
-            <legend className="mb-2 text-md font-medium leading-none">
+          <div className="flex flex-col gap-3">
+            <span
+              id="contact-preference-label"
+              className="flex items-center gap-2 text-md font-medium select-none"
+            >
               Como prefere ser contatado?
-            </legend>
+            </span>
 
-            <div className="grid grid-cols-3 gap-2">
+            <div
+              role="radiogroup"
+              aria-labelledby="contact-preference-label"
+              className="grid grid-cols-3 gap-2"
+            >
               {contactPreferences.map((option) => (
                 <label key={option} className="cursor-pointer">
                   <input
@@ -207,9 +217,9 @@ export function Formulario() {
                 {errors.contactPreference.message}
               </p>
             )}
-          </fieldset>
+          </div>
 
-          <div className="space-y-2">
+          <div className="flex flex-col gap-3">
             <Label htmlFor="contact-source" className="block text-md">
               Como nos conheceu?{" "}
               <span className="font-normal text-muted-foreground">
@@ -230,7 +240,7 @@ export function Formulario() {
           </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="flex flex-col gap-3">
           <Label htmlFor="contact-message" className="block text-md">
             Mensagem{" "}
             <span className="font-normal text-muted-foreground">

@@ -12,7 +12,10 @@ export default function ContatoPage() {
       <Breadcrumb />
       <div className="container overflow-hidden py-15">
         <div className="grid grid-cols-12 items-center py-10 lg:gap-20">
-          <div className="col-span-12 xl:col-span-6 pb-20 xl:pb-0" data-aos="fade-right">
+          <div
+            className="col-span-12 xl:col-span-5 pb-20 xl:pb-0"
+            data-aos="fade-right"
+          >
             <h2 className="text-3xl font-medium text-dark mb-4">
               Fale com a gente
             </h2>
@@ -28,7 +31,9 @@ export default function ContatoPage() {
                   <MapPin className="h-6 w-6 text-gray-100" />
                 </div>
                 <span>
-                  <h3 className="text-lg font-bold text-brand-gradient">Endereço</h3>
+                  <h3 className="text-lg font-bold text-brand-gradient">
+                    Endereço
+                  </h3>
                   {siteConfig.contact.address.rua} <br />
                   {siteConfig.contact.address.bairro} -
                   {siteConfig.contact.address.cidade}/
@@ -42,7 +47,9 @@ export default function ContatoPage() {
                   <Phone className="h-6 w-6 text-gray-100" />
                 </div>
                 <span>
-                  <h3 className="text-lg font-bold text-brand-gradient">Telefone</h3>
+                  <h3 className="text-lg font-bold text-brand-gradient">
+                    Telefone
+                  </h3>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
                     className="hover:text-primary transition duration-300"
@@ -61,7 +68,9 @@ export default function ContatoPage() {
                   />
                 </div>
                 <span>
-                  <h3 className="text-lg font-bold text-brand-gradient">Whatsapp</h3>
+                  <h3 className="text-lg font-bold text-brand-gradient">
+                    Whatsapp
+                  </h3>
                   <a
                     href={whatsappHref}
                     className=" hover:text-primary transition duration-300"
@@ -79,7 +88,9 @@ export default function ContatoPage() {
                   <Mail className="h-6 w-6 text-gray-100" />
                 </div>
                 <span>
-                  <h3 className="text-lg font-bold text-brand-gradient">E-mail</h3>
+                  <h3 className="text-lg font-bold text-brand-gradient">
+                    E-mail
+                  </h3>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
                     className=" hover:text-primary transition duration-300"
@@ -91,7 +102,7 @@ export default function ContatoPage() {
               </div>
             </div>
           </div>
-          <div className="col-span-12 xl:col-span-6" data-aos="fade-left">
+          <div className="col-span-12 xl:col-span-7" data-aos="fade-left">
             <Formulario />
           </div>
         </div>

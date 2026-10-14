@@ -89,7 +89,11 @@ const sections = [
 export default function PoliticaDePrivacidade() {
   return (
     <section>
-      <Breadcrumb />
+      <Breadcrumb
+        items={[
+          { name: "Política de Privacidade", href: "/politica-de-privacidade" },
+        ]}
+      />
 
       <div className="container py-20">
         <div className="max-w-3xl">
