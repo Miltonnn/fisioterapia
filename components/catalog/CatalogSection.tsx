@@ -25,7 +25,7 @@ export function CatalogSection({
   className,
 }: CatalogSectionProps) {
   return (
-    <section className={cn("py-20", className)}>
+    <section className={cn("overflow-hidden py-20", className)}>
       <div className="container">
         <CatalogCarousel items={items} label={eyebrow.toLowerCase()}>
           <div className="text-left" data-aos="fade-left">

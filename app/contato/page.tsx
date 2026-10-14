@@ -10,7 +10,7 @@ export default function ContatoPage() {
   return (
     <section>
       <Breadcrumb />
-      <div className="container py-15">
+      <div className="container overflow-hidden py-15">
         <div className="grid grid-cols-12 items-center py-10 lg:gap-20">
           <div className="col-span-12 xl:col-span-6 pb-20 xl:pb-0" data-aos="fade-right">
             <h2 className="text-3xl font-medium text-dark mb-4">

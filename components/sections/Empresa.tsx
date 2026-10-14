@@ -18,7 +18,7 @@ export function Empresa() {
   return (
     <section className="overflow-hidden bg-white py-20 lg:py-24">
       <div className="container grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-5" data-aos="fade-right">
+        <div className="hidden lg:col-span-5 lg:block" data-aos="fade-right">
           <ProfilePhoto />
         </div>
 
@@ -48,6 +48,10 @@ export function Empresa() {
             construímos um caminho seguro para você recuperar a independência do
             seu corpo, no seu tempo.
           </p>
+
+          <div className="mt-6 mb-16 w-full lg:hidden">
+            <ProfilePhoto />
+          </div>
 
           <ul className="mb-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
             {destaques.map((destaque) => (

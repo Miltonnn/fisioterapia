@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Button, ButtonArrow } from "@/components/ui/button";
 import Image from "next/image";
+import { Activity, PersonStanding } from "lucide-react";
 import { SocialIcons } from "@/components/SocialIcons";
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen md:min-h-[70vh] py-16 xl:pb-0 flex items-center xl:items-stretch justify-center md:bg-gray-50">
+    <section className="relative w-full overflow-hidden min-h-screen md:min-h-[70vh] pt-16 pb-0 flex items-center xl:items-stretch justify-center md:bg-gray-50">
       <div className="container relative z-30">
-        <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-20 xl:h-full">
+        <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-12 xl:gap-20 xl:h-full">
           <div
             className="flex flex-col items-center xl:items-start text-center xl:text-left"
             data-aos="fade-right"
@@ -55,16 +56,30 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-end xl:self-end" data-aos="fade-left">
-            <Image
-              src="/assets/banner/hero-banner.png"
-              alt="Dra. Amanda Torrigo, fisioterapeuta"
-              title="Dra. Amanda Torrigo"
-              width={1086}
-              height={1448}
-              priority
-              className="hidden xl:block w-full max-w-[520px] h-auto drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]"
-            />
+          <div className="flex justify-center xl:justify-end xl:self-end" data-aos="fade-left">
+            <div className="relative isolate w-full max-w-[340px] md:max-w-[420px] xl:max-w-[520px]">
+              <PersonStanding
+                aria-hidden="true"
+                strokeWidth={1.25}
+                className="pointer-events-none absolute top-[12%] -left-[6%] -z-10 hidden size-28 rotate-12 text-primary/10 xl:block"
+              />
+              <Activity
+                aria-hidden="true"
+                strokeWidth={1.25}
+                className="pointer-events-none absolute bottom-[18%] -left-[10%] -z-10 hidden size-32 -rotate-6 text-primary/10 xl:block"
+              />
+
+              <Image
+                src="/assets/banner/hero-banner.png"
+                alt="Dra. Amanda Torrigo, fisioterapeuta"
+                title="Dra. Amanda Torrigo"
+                width={1086}
+                height={1448}
+                priority
+                sizes="(min-width: 1280px) 520px, (min-width: 768px) 420px, 340px"
+                className="block w-full h-auto drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]"
+              />
+            </div>
           </div>
         </div>
       </div>
