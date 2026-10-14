@@ -1,41 +1,38 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { Button, ButtonArrow } from "@/components/ui/button";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "404 - Página não encontrada",
 };
 
 export default function NotFound() {
   return (
-    <div className="min-h-[75vh] flex items-center justify-center bg-white px-6">
-      <div className="max-w-xl w-full text-center">
-        <div className="w-16 h-[2px] bg-gray-200 mx-auto mb-8" />
-
-        <span className="text-6xl md:text-7xl font-bold text-gray-900 tracking-tight">
+    <section className="flex min-h-[75vh] items-center justify-center bg-white px-4 py-20">
+      <div className="flex max-w-xl flex-col items-center text-center">
+        <p
+          aria-hidden="true"
+          className="text-brand-gradient text-[7rem] leading-none font-bold tracking-tighter sm:text-[10rem] lg:text-[12rem]"
+        >
           404
-        </span>
-
-        <h2 className="mt-6 text-2xl font-medium text-gray-800">
-          Página não encontrada
-        </h2>
-
-        <p className="mt-4 text-base text-gray-500 leading-relaxed">
-          A página que você tentou acessar não está disponível. Verifique o
-          endereço ou retorne à página inicial.
         </p>
 
-        <div className="mt-10">
-          <Link
-            href="/"
-            title="Home"
-            className="inline-flex items-center justify-center px-6 py-3
-                       bg-gray-900 text-white text-sm font-medium
-                       rounded-md
-                       hover:bg-black transition-colors duration-200"
-          >
-            Ir para página inicial
+        <h1 className="mt-4 text-2xl font-semibold tracking-tight text-heading md:text-3xl">
+          Página não encontrada
+        </h1>
+
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          A página que você tentou acessar não existe ou mudou de endereço.
+          Verifique o link ou volte para a página inicial.
+        </p>
+
+        <Button asChild size="lg" className="mt-10">
+          <Link href="/" title="Voltar para a home">
+            Voltar para a home
+            <ButtonArrow />
           </Link>
-        </div>
+        </Button>
       </div>
-    </div>
+    </section>
   );
 }

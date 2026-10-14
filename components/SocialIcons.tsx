@@ -1,16 +1,21 @@
 import { socialLinks } from "@/lib/social-links"
+import { cn } from "@/lib/utils"
 
 interface SocialIconsProps {
   className?: string
   iconSize?: number
+  colorMode?: "theme" | "brand"
+  itemClassName?: string
 }
 
 export function SocialIcons({
   className = "",
   iconSize = 20,
+  colorMode = "theme",
+  itemClassName,
 }: SocialIconsProps) {
   return (
-    <div className={`flex gap-4 ${className}`}>
+    <div className={cn("flex gap-4", className)}>
       {socialLinks.map((social) => {
         const Icon = social.icon
 
@@ -21,7 +26,13 @@ export function SocialIcons({
             title={social.name}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-lg bg-brand-gradient hover:brightness-110 hover:-translate-y-0.5 flex items-center justify-center transition text-white shadow-sm shadow-primary/30"
+            className={cn(
+              "w-10 h-10 rounded-lg hover:brightness-110 hover:-translate-y-0.5 flex items-center justify-center transition text-white shadow-sm",
+              colorMode === "brand"
+                ? social.brandClassName
+                : "bg-brand-gradient shadow-primary/30",
+              itemClassName
+            )}
             aria-label={social.name}
           >
             <Icon size={iconSize} />

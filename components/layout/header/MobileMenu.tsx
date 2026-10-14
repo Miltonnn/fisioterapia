@@ -37,7 +37,7 @@ export function MobileMenu() {
             [&>button]:right-5
             "
         >
-          <div className="bg-brand-gradient px-6 py-5 flex items-center">
+          <div className="bg-brand-gradient px-2 py-5 flex items-center">
             <Logo variant="light" />
           </div>
 

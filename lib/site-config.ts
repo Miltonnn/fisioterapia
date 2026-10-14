@@ -1,18 +1,19 @@
 export const siteConfig = {
   name: "Dra. Amanda Torrigo",
-  description: "Fisioterapeuta formada pela Unicsul - Universidade Cruzeiro do Sul",
+  description:
+    "Fisioterapeuta formada pela Unicsul - Universidade Cruzeiro do Sul",
   crefito: "CREFITO-3 000000-F",
 
   contact: {
-    email: "contato@devmundo.com",
-    phone: "(11) 99999-9999",
-    whatsapp: "(11) 99999-9999",
+    email: "amandatorrigo2@gmail.com",
+    phone: "(11) 95337-2259",
+    whatsapp: "(11) 95337-2259",
     address: {
-      rua: " Rua Exemplo,123",
-      bairro: "Bairro Centro",
+      rua: "Av Nordestina, 2780",
+      bairro: "São Miguel",
       cidade: "São Paulo",
       estado: "SP",
-      cep: "01000-000",
+      cep: "08042-000",
     },
   },
   mapa: {

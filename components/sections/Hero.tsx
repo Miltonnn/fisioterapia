@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button, ButtonArrow } from "@/components/ui/button";
 import Image from "next/image";
-import { Award } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
 
 export function Hero() {
   return (
@@ -25,6 +25,18 @@ export function Hero() {
               personalizado para ajudar você a aliviar dores, recuperar a
               mobilidade e voltar a fazer o que gosta.
             </p>
+
+            <div className="mt-6 flex items-center gap-3">
+              <span className="text-sm font-semibold text-muted-foreground">
+                Redes:
+              </span>
+              <SocialIcons
+                className="gap-1"
+                colorMode="brand"
+                iconSize={14}
+                itemClassName="w-7 h-7 rounded-full"
+              />
+            </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">
