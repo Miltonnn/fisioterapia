@@ -25,6 +25,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { FeedbackDialog, useFeedback } from "@/components/forms/FeedbackDialog";
 
 import { Mail, Phone } from "lucide-react";
+import "@/lib/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 

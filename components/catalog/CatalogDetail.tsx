@@ -21,7 +21,7 @@ export function CatalogDetail({ item }: CatalogDetailProps) {
           <button
             type="button"
             aria-label={`Ampliar imagem: ${item.name}`}
-            className="group relative block w-full overflow-hidden rounded-md aspect-[5/2] cursor-zoom-in outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            className="group relative block w-full overflow-hidden rounded-md aspect-[5/3] md:aspect-[5/2] cursor-zoom-in outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
             <Image
               src={item.image}
@@ -64,7 +64,7 @@ export function CatalogDetail({ item }: CatalogDetailProps) {
       </Dialog>
 
       <div>
-        <h1 className="text-4xl font-bold mb-6">{item.name}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-6">{item.name}</h1>
 
         <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
           {(item.details ?? [item.description]).map((paragraph) => (
