@@ -21,19 +21,13 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-brand-gradient text-white/75">
       <section className="container grid grid-cols-1 lg:grid-cols-[22rem_1fr] xl:grid-cols-[26rem_1fr]">
-        <div className="flex flex-col gap-10 py-14 lg:pr-12">
-          <div className="space-y-6">
-            <h3 className={titleClassName}>Assine nossa newsletter!</h3>
-            <NewsletterForm />
-          </div>
+        <div className="border-b border-white/20 py-10 lg:col-span-2">
+          <Logo variant="light" />
+        </div>
 
-          <div className="space-y-6">
-            <p className="text-sm leading-relaxed">
-              Fisioterapia com atendimento humanizado e personalizado para você
-              recuperar o movimento e a qualidade de vida.
-            </p>
-            <Logo variant="light" />
-          </div>
+        <div className="space-y-6 py-14 lg:pr-12">
+          <h3 className={titleClassName}>Assine nossa newsletter!</h3>
+          <NewsletterForm />
         </div>
 
         <div className="flex flex-col border-t border-white/20 lg:border-t-0 lg:border-l lg:pl-12">

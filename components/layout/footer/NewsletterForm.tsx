@@ -18,7 +18,7 @@ import { Button, ButtonArrow } from "@/components/ui/button";
 import { FeedbackDialog, useFeedback } from "@/components/forms/FeedbackDialog";
 
 const inputClassName =
-  "h-12 rounded-full border-white/15 bg-white/15 px-5 text-white placeholder:text-white/70 shadow-none focus-visible:border-white/60 focus-visible:ring-white/30 aria-invalid:border-red-200";
+  "h-12 border-white/15 bg-white/15 px-5 text-white placeholder:text-white/70 shadow-none focus-visible:border-white/60 focus-visible:ring-white/30 aria-invalid:border-red-200";
 
 const fields = [
   { name: "name", label: "Nome", type: "text", autoComplete: "name" },
@@ -122,7 +122,7 @@ export function NewsletterForm() {
           variant="light"
           size="lg"
           disabled={isSubmitting}
-          className="w-full justify-between rounded-full px-5"
+          className="w-full justify-between px-5"
         >
           {isSubmitting ? "Enviando..." : "Cadastrar"}
           <ButtonArrow className="size-5" />
