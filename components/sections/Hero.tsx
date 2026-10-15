@@ -1,26 +1,12 @@
 import Link from "next/link";
 import { Button, ButtonArrow } from "@/components/ui/button";
 import Image from "next/image";
-import {
-  HeroArc,
-  HeroCornerWaves,
-} from "@/components/sections/HeroDecorations";
+import { Activity, PersonStanding } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden min-h-screen md:min-h-[70vh] pt-16 pb-0 flex items-center xl:items-stretch justify-center">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <Image
-          src="/assets/banner/bg-fundo-hero.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="scale-105 object-cover blur-[3px] brightness-90"
-        />
-        <div className="absolute inset-0 bg-white/20 xl:bg-linear-to-r xl:from-white/60 xl:from-5% xl:via-white/20 xl:via-30% xl:to-transparent xl:to-45%" />
-        <HeroCornerWaves className="absolute bottom-0 left-0 h-40 w-full md:h-56 xl:w-[60%]" />
-      </div>
-
+    <section className="relative w-full overflow-hidden min-h-screen md:min-h-[70vh] pt-16 pb-0 flex items-center xl:items-stretch justify-center md:bg-gray-50">
       <div className="container relative z-30">
         <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-12 xl:gap-20 xl:h-full">
           <div
@@ -43,6 +29,18 @@ export function Hero() {
               Fisioterapia para você voltar a fazer o que ama.
             </p>
 
+            <div className="mt-6 flex items-center gap-3">
+              <span className="text-sm font-semibold text-muted-foreground">
+                Redes:
+              </span>
+              <SocialIcons
+                className="gap-1"
+                colorMode="brand"
+                iconSize={14}
+                itemClassName="w-7 h-7 rounded-full"
+              />
+            </div>
+
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg">
                 <Link href="/contato" title="Agendar consulta">
@@ -64,8 +62,17 @@ export function Hero() {
             className="flex justify-center xl:justify-end xl:self-end"
             data-aos="fade-left"
           >
-            <div className="relative isolate w-full max-w-[340px] md:max-w-[440px] xl:max-w-[560px]">
-              <HeroArc className="absolute top-0 -left-[20%] xl:-top-[10%] -z-10 h-auto w-[190%]" />
+            <div className="relative isolate w-full max-w-[340px] md:max-w-[420px] xl:max-w-[520px]">
+              <PersonStanding
+                aria-hidden="true"
+                strokeWidth={1.25}
+                className="pointer-events-none absolute top-[12%] -left-[6%] -z-10 hidden size-28 rotate-12 text-primary/10 xl:block"
+              />
+              <Activity
+                aria-hidden="true"
+                strokeWidth={1.25}
+                className="pointer-events-none absolute bottom-[18%] -left-[10%] -z-10 hidden size-32 -rotate-6 text-primary/10 xl:block"
+              />
 
               <Image
                 src="/assets/banner/hero-banner.png"
@@ -74,7 +81,7 @@ export function Hero() {
                 width={1086}
                 height={1448}
                 priority
-                sizes="(min-width: 1280px) 560px, (min-width: 768px) 440px, 340px"
+                sizes="(min-width: 1280px) 520px, (min-width: 768px) 420px, 340px"
                 className="block w-full h-auto drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]"
               />
             </div>
