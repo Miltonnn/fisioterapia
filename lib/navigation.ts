@@ -45,3 +45,8 @@ const allNavigationLinks: NavLink[] = [
 export const navigationLinks = allNavigationLinks.filter((link) =>
   isSectionEnabled(link.section)
 );
+
+export const footerNavigationLinks: NavLink[] = [
+  ...navigationLinks,
+  { name: "Política de Privacidade", href: "/politica-de-privacidade" },
+];

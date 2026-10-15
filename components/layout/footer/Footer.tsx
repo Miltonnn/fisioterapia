@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigationLinks } from "@/lib/navigation";
+import { footerNavigationLinks } from "@/lib/navigation";
 import { serviceLinks } from "@/components/sections/Services/services.data";
 import { SocialIcons } from "@/components/SocialIcons";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
@@ -21,7 +21,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-heading text-white/75">
       <section className="container grid grid-cols-1 lg:grid-cols-[22rem_1fr] xl:grid-cols-[26rem_1fr]">
-        <div className="border-b border-white/20 py-10 lg:col-span-2">
+        <div className="relative py-10 lg:col-span-2 after:absolute after:inset-x-[-100vw] after:bottom-0 after:border-b after:border-white/20">
           <Logo variant="light" />
         </div>
 
@@ -30,13 +30,13 @@ export function Footer() {
           <NewsletterForm />
         </div>
 
-        <div className="flex flex-col border-t border-white/20 lg:border-t-0 lg:border-l lg:pl-12">
+        <div className="relative flex flex-col before:absolute before:inset-x-[-100vw] before:top-0 before:border-t before:border-white/20 lg:border-l lg:border-white/20 lg:pl-12 lg:before:hidden">
           <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 xl:flex xl:justify-between xl:gap-12">
             <div className="space-y-4">
               <h3 className={titleClassName}>Navegação</h3>
 
               <nav className="flex flex-col gap-3 text-sm">
-                {navigationLinks.map((link) => (
+                {footerNavigationLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -116,7 +116,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="-mx-[var(--container-gutter)] flex flex-col gap-4 border-y border-white/20 px-[var(--container-gutter)] py-7 sm:flex-row sm:items-center sm:justify-between lg:-ml-12 lg:pl-12">
+          <div className="relative -mx-[var(--container-gutter)] flex flex-col gap-4 px-[var(--container-gutter)] py-7 before:absolute before:top-0 before:left-0 before:right-[-100vw] before:border-t before:border-white/20 after:absolute after:bottom-0 after:left-0 after:right-[-100vw] after:border-b after:border-white/20 sm:flex-row sm:items-center sm:justify-between lg:-ml-12 lg:pl-12">
             <p className="text-sm">
               {siteConfig.name} · {siteConfig.crefito}
             </p>
@@ -132,12 +132,6 @@ export function Footer() {
             <p>
               © {year} {siteConfig.name}. Todos os direitos reservados.
             </p>
-            <Link
-              href="/politica-de-privacidade"
-              className="w-fit underline-offset-4 hover:text-white hover:underline"
-            >
-              Política de Privacidade
-            </Link>
           </div>
         </div>
       </section>
