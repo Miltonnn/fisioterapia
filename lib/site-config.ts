@@ -2,10 +2,10 @@ export const siteConfig = {
   name: "Dra. Amanda Torrigo",
   description:
     "Fisioterapeuta formada pela Unicsul - Universidade Cruzeiro do Sul",
-  crefito: "CREFITO-3 000000-F",
+  crefito: "CREFITO-3 412073-F",
 
   contact: {
-    email: "amandatorrigo2@gmail.com",
+    email: "amanda.torrigo2@gmail.com",
     phone: "(11) 95337-2259",
     whatsapp: "(11) 95337-2259",
     address: {
