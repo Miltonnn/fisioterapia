@@ -19,7 +19,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-brand-gradient text-white/75">
+    <footer className="relative overflow-hidden bg-heading text-white/75">
       <section className="container grid grid-cols-1 lg:grid-cols-[22rem_1fr] xl:grid-cols-[26rem_1fr]">
         <div className="border-b border-white/20 py-10 lg:col-span-2">
           <Logo variant="light" />

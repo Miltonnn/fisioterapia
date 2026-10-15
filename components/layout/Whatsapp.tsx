@@ -190,15 +190,15 @@ export default function Whatsapp() {
         <button
           onClick={() => setOpen(!open)}
           aria-label="Abrir conversa no WhatsApp"
-          className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-xl hover:scale-110 transition-transform relative"
+          className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform relative"
         >
           <span className="whatsapp-wave"></span>
 
           <Image
             src="/assets/icons/whatsapp.svg"
             alt="WhatsApp"
-            width={28}
-            height={28}
+            width={24}
+            height={24}
           />
         </button>
       </div>

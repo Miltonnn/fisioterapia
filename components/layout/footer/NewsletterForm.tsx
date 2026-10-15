@@ -122,7 +122,7 @@ export function NewsletterForm() {
           variant="light"
           size="lg"
           disabled={isSubmitting}
-          className="w-full justify-between px-5"
+          className="w-full justify-between px-5 before:bg-primary"
         >
           {isSubmitting ? "Enviando..." : "Cadastrar"}
           <ButtonArrow className="size-5" />
