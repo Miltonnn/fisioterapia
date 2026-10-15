@@ -1,91 +1,142 @@
 import Link from "next/link";
-import { Button, ButtonArrow } from "@/components/ui/button";
 import Image from "next/image";
-import { Activity, PersonStanding } from "lucide-react";
-import { SocialIcons } from "@/components/SocialIcons";
+import { Activity, Heart, PersonStanding, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { socialLinks } from "@/lib/social-links";
+import { cn } from "@/lib/utils";
+
+const marqueeWords = ["movimento", "reabilitação", "bem-estar", "cuidado"];
+
+const chips = [
+  { label: "Reabilitação", icon: Activity, className: "hero-chip--a" },
+  { label: "Movimento", icon: PersonStanding, className: "hero-chip--b" },
+  { label: "Bem-estar", icon: Sparkles, className: "hero-chip--c" },
+];
+
+const heroButtonClassName =
+  "h-13 rounded-full px-7 text-base font-semibold hover:-translate-y-0.5 motion-reduce:hover:translate-y-0";
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden min-h-screen md:min-h-[70vh] pt-16 pb-0 flex items-center xl:items-stretch justify-center md:bg-gray-50">
-      <div className="container relative z-30">
-        <div className="grid grid-cols-1 xl:grid-cols-2 items-center gap-12 xl:gap-20 xl:h-full">
-          <div
-            className="flex flex-col items-center xl:items-start text-center xl:text-left xl:pb-20"
-            data-aos="fade-right"
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="hero-marquee" aria-hidden="true">
+        <div className="hero-marquee-track">
+          {[...marqueeWords, ...marqueeWords].map((word, index) => (
+            <span key={`${word}-${index}`}>{word}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="container relative z-10 grid h-full grid-cols-1 items-center md:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] max-md:pt-12">
+        <div className="hero-content relative z-40 max-w-[500px] max-md:max-w-none">
+          <h1
+            id="hero-title"
+            className="mb-5 text-[clamp(2.25rem,4.4vw,3.625rem)] font-medium leading-[1.05] tracking-tight text-balance text-heading"
           >
-            <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.05] text-balance max-w-2xl text-heading">
-              Mais{" "}
-              <span className="font-bold text-brand-gradient">movimento,</span>{" "}
-              mais qualidade{" "}
-              <span className="font-bold text-brand-gradient">de vida.</span>
-            </h1>
+            Mais{" "}
+            <span className="font-bold text-brand-gradient">movimento,</span>{" "}
+            mais qualidade{" "}
+            <span className="font-bold text-brand-gradient">de vida.</span>
+          </h1>
 
-            <span
-              aria-hidden="true"
-              className="mt-6 block h-1 w-12 rounded-full bg-brand-gradient"
-            />
+          <p className="mb-8 text-[clamp(1.0625rem,1.5vw,1.25rem)] leading-normal text-heading/80">
+            Fisioterapia para você voltar a fazer o que ama.
+          </p>
 
-            <p className="mt-5 max-w-xs text-xl text-heading/80">
-              Fisioterapia para você voltar a fazer o que ama.
-            </p>
+          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap max-md:mb-6">
+            <Button
+              asChild
+              className={cn(
+                heroButtonClassName,
+                "shadow-[0_14px_30px_-14px] shadow-heading/70"
+              )}
+            >
+              <Link href="/contato" title="Agendar consulta">
+                Agendar consulta
+              </Link>
+            </Button>
 
-            <div className="mt-6 flex items-center gap-3">
-              <span className="text-sm font-semibold text-muted-foreground">
-                Redes:
+            <Button
+              asChild
+              variant="light"
+              className={cn(
+                heroButtonClassName,
+                "border-[1.5px] border-heading/20 bg-white/60"
+              )}
+            >
+              <Link href="/servicos" title="Tratamentos">
+                Conheça os tratamentos
+              </Link>
+            </Button>
+          </div>
+
+          <ul className="flex gap-2.5" aria-label="Redes sociais">
+            {socialLinks.map(({ name, href, icon: Icon }) => (
+              <li key={name}>
+                <a
+                  href={href}
+                  title={name}
+                  aria-label={name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid size-11 place-items-center rounded-full border-[1.5px] border-heading/20 text-primary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                >
+                  <Icon aria-hidden="true" className="size-5" strokeWidth={1.8} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="hero-visual">
+          <div className="hero-dots" aria-hidden="true" />
+          <div className="hero-ring" aria-hidden="true" />
+          <div className="hero-blob" aria-hidden="true" />
+
+          <svg className="hero-wave" viewBox="0 0 600 200" aria-hidden="true">
+            <path d="M0 120 C 80 120, 100 40, 160 40 S 240 160, 300 160 S 380 60, 440 60 S 540 130, 600 110" />
+          </svg>
+
+          <Image
+            src="/assets/banner/hero-banner.png"
+            alt="Dra. Amanda Torrigo, fisioterapeuta"
+            title="Dra. Amanda Torrigo"
+            width={1086}
+            height={1448}
+            priority
+            sizes="(min-width: 768px) 600px, 360px"
+            className="hero-photo"
+          />
+
+          <div className="hero-badge" aria-hidden="true">
+            <svg className="hero-badge-text" viewBox="0 0 120 120">
+              <defs>
+                <path
+                  id="hero-badge-circle"
+                  d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"
+                />
+              </defs>
+              <text textLength="272" lengthAdjust="spacing">
+                <textPath
+                  href="#hero-badge-circle"
+                  textLength="272"
+                  lengthAdjust="spacing"
+                >
+                  fisioterapia • movimento •
+                </textPath>
+              </text>
+            </svg>
+            <Heart className="hero-badge-icon" />
+          </div>
+
+          {chips.map(({ label, icon: Icon, className }) => (
+            <div key={label} className={cn("hero-chip", className)} aria-hidden="true">
+              <span className="hero-chip-icon">
+                <Icon />
               </span>
-              <SocialIcons
-                className="gap-1"
-                colorMode="brand"
-                iconSize={14}
-                itemClassName="w-7 h-7 rounded-full"
-              />
+              {label}
             </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg">
-                <Link href="/contato" title="Agendar consulta">
-                  Agendar consulta
-                  <ButtonArrow />
-                </Link>
-              </Button>
-
-              <Button asChild variant="outline" size="lg">
-                <Link href="/servicos" title="Tratamentos">
-                  Conheça os tratamentos
-                  <ButtonArrow />
-                </Link>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="flex justify-center xl:justify-end xl:self-end"
-            data-aos="fade-left"
-          >
-            <div className="relative isolate w-full max-w-[340px] md:max-w-[420px] xl:max-w-[520px]">
-              <PersonStanding
-                aria-hidden="true"
-                strokeWidth={1.25}
-                className="pointer-events-none absolute top-[12%] -left-[6%] -z-10 hidden size-28 rotate-12 text-primary/10 xl:block"
-              />
-              <Activity
-                aria-hidden="true"
-                strokeWidth={1.25}
-                className="pointer-events-none absolute bottom-[18%] -left-[10%] -z-10 hidden size-32 -rotate-6 text-primary/10 xl:block"
-              />
-
-              <Image
-                src="/assets/banner/hero-banner.png"
-                alt="Dra. Amanda Torrigo, fisioterapeuta"
-                title="Dra. Amanda Torrigo"
-                width={1086}
-                height={1448}
-                priority
-                sizes="(min-width: 1280px) 520px, (min-width: 768px) 420px, 340px"
-                className="block w-full h-auto drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)]"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
