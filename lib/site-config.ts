@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Dra. Amanda Torrigo",
+  url: "https://amandatorrigo.vercel.app",
   description:
     "Fisioterapeuta formada pela Unicsul - Universidade Cruzeiro do Sul",
   crefito: "CREFITO-3 412073-F",

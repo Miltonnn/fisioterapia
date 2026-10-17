@@ -49,4 +49,5 @@ export const navigationLinks = allNavigationLinks.filter((link) =>
 export const footerNavigationLinks: NavLink[] = [
   ...navigationLinks,
   { name: "Política de Privacidade", href: "/politica-de-privacidade" },
+  { name: "Mapa do Site", href: "/mapa-do-site" },
 ];
